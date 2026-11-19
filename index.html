@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penyegaran Pagi - Kaum Beriman (1)</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="manifest" href="./manifest.json">
+    <style>
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background-color: #f7f5ee;
+            color: #343b36;
+            margin: 0;
+            padding: 15px;
+        }
+        .main-wrapper {
+            max-width: 960px;
+            margin: auto;
+        }
+        .app-header {
+            background: linear-gradient(135deg, #20392f, #527763);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .app-header h1 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .date-box {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        .date-box input {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .version-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .tab-btn {
+            background-color: #2e725d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .tab-btn.active {
+            background-color: #1b4d3e;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            border: 1px solid #e5d4ad;
+        }
+        .tab-btn:hover {
+            background-color: #296d59;
+        }
+        #ai-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            min-height: 300px;
+        }
+    /* RESPONSIVE_DESKTOP_HP */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        .main-wrapper {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        #ai-content {
+            width: 100%;
+            overflow-x: hidden;
+        }
+        #ai-content iframe {
+            display: block;
+            width: 100%;
+            min-height: 75vh;
+            border: none;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 8px;
+            }
+            .app-header {
+                padding: 16px 12px;
+            }
+            .version-switcher {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .version-switcher .tab-btn {
+                flex: 1 1 auto;
+                font-size: 13px;
+                padding: 8px 10px;
+            }
+            #ai-content {
+                padding: 10px;
+                border-radius: 8px;
+            }
+            #ai-content iframe {
+                min-height: 72vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <header class="app-header">
+            <div style="color: #e5d4ad; letter-spacing: 2px; font-size: 11px; text-transform: uppercase;">Penyegaran Pagi · Kaum Beriman (1)</div>
+            <h1>Pusat Perenungan Harian</h1>
+            
+            <div class="date-box">
+                <label for="date-selector" style="font-size: 14px; font-weight: 600; color: #e6eee8;">Pilih Tanggal:</label>
+                <input type="date" id="date-selector" min="2026-10-05" max="2026-12-26">
+            </div>
+
+            <div class="version-switcher">
+                <button class="tab-btn active" id="btn-v1" onclick="switchVersion('01')">Buku Asli (_01)</button>
+                <button class="tab-btn" id="btn-v2" onclick="switchVersion('02')">Alkitab Pemulihan (_02)</button>
+                <button class="tab-btn" id="btn-v3" onclick="switchVersion('03')">Penggalian AI (_03)</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="ai-content">
+                Memuat materi penyegaran pagi...
+            </div>
+        </main>
+    </div>
+
+    <script src="./assets/js/app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+                .then(() => console.log('Service Worker terdaftar!'));
+        }
+    </script>
+</body>
+</html>

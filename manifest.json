@@ -1,0 +1,73 @@
+{
+  "name": "PWA Penyegaran Pagi AI",
+  "short_name": "Penyegaran Pagi",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "./assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+```[cite: 1]
+
+---
+
+### 2. Buat Kerangka `index.html` (Antarmuka Utama)
+Buat file `index.html` yang akan menampilkan antarmuka penyegaran pagi, termasuk wadah untuk menampilkan teks dari AI/AIPRM:
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penyegaran Pagi AI</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☀️ Penyegaran Pagi</h1>
+            <p>Mulai hari dengan inspirasi dan energi positif.</p>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>Refleksi & Motivasi Hari Ini</h2>
+                <div id="ai-content" class="content-box">
+                    Memuat materi penyegaran pagi...
+                </div>
+                <button id="refresh-btn" class="btn">Muat Ulang Penyegaran</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="./assets/js/app.js"></script>
+    <script>
+        // Mendaftarkan Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+                .then(() => console.log('Service Worker terdaftar!'));
+        }
+    </script>
+</body>
+</html>
+```[cite: 1]
+
+---
+
+### 3. Langkah Selanjutnya
+Karena struktur folder Anda saat ini belum memiliki direktori `./assets/css/`, `./assets/js/`, dan folder aset pendukung lainnya, maukah kita buatkan struktur direktori tersebut di terminal Linux Mint Anda? 
+
+Atau Anda ingin kita langsung fokus merancang isi kode logika JavaScript (`app.js`) untuk menghubungkannya dengan API/template AI?

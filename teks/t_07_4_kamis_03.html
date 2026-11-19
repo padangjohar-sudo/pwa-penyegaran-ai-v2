@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#5b4636">
+  <meta name="description" content="Penyegaran Pagi Kaum Beriman (1), Pekan 7, Kamis 19 November 2026: satu biji gandum mati, banyak biji dihasilkan, dan satu roti terbentuk.">
+  <title>Penyegaran Pagi — Kaum Beriman (1), Pekan 7, Kamis</title>
+  <style>
+    :root {
+      --ink: #2e2924;
+      --muted: #6f665d;
+      --paper: #fbf8f2;
+      --card: #fffdf9;
+      --line: #e5dbce;
+      --earth: #72563f;
+      --earth-dark: #4e3b2c;
+      --gold: #b68b50;
+      --soft: #f2eadf;
+      --green: #68745a;
+      --shadow: 0 12px 34px rgba(63, 47, 31, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif; line-height: 1.72;
+    }
+    .page { max-width: 1020px; margin: 0 auto; padding: 28px 20px 70px; }
+    .hero {
+      position: relative; overflow: hidden; padding: 52px 44px 46px;
+      color: #fffaf2; border-radius: 22px;
+      background: linear-gradient(135deg, rgba(62,46,33,.97), rgba(119,88,59,.93)),
+                  radial-gradient(circle at 90% 10%, #c49a61, transparent 38%);
+      box-shadow: var(--shadow);
+    }
+    .hero:after {
+      content: "✦"; position: absolute; right: 42px; bottom: -70px;
+      font-size: 240px; color: rgba(255,255,255,.055); line-height: 1;
+    }
+    .eyebrow {
+      margin: 0 0 12px; color: #e4c99e; text-transform: uppercase;
+      letter-spacing: .16em; font: 700 .76rem Arial, sans-serif;
+    }
+    h1 { max-width: 760px; margin: 0; font-size: clamp(2rem, 5vw, 3.45rem); line-height: 1.12; font-weight: 500; }
+    .subtitle { margin: 18px 0 0; color: #f0e4d4; font: 1rem/1.6 Arial, sans-serif; }
+    .verse {
+      margin: 26px 0 0; padding: 20px 24px; border-left: 3px solid #d7b47e;
+      background: rgba(255,255,255,.08); max-width: 800px; font-size: 1.06rem;
+    }
+    .verse strong { color: #f4d7a7; font-weight: 600; }
+    nav {
+      display: flex; flex-wrap: wrap; gap: 9px; margin: 22px 0 34px;
+    }
+    nav a {
+      color: var(--earth-dark); text-decoration: none; background: #eee5d9;
+      border: 1px solid var(--line); padding: 8px 13px; border-radius: 999px;
+      font: 600 .83rem Arial, sans-serif;
+    }
+    nav a:hover { background: #e5d6c3; }
+    section { margin: 34px 0; scroll-margin-top: 18px; }
+    h2 {
+      color: var(--earth-dark); font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.25; margin: 0 0 16px; font-weight: 500;
+    }
+    h3 { color: var(--earth); font-size: 1.18rem; margin: 22px 0 8px; }
+    p { margin: 10px 0; }
+    .lead { font-size: 1.12rem; color: #51463c; }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+      padding: 24px 26px; margin: 16px 0; box-shadow: 0 5px 18px rgba(63,47,31,.035);
+    }
+    .quote {
+      padding: 17px 21px; margin: 18px 0; background: var(--soft);
+      border-left: 3px solid var(--gold); color: #514538; font-style: italic;
+    }
+    .note {
+      padding: 16px 19px; border-radius: 12px; background: #edf0e8;
+      border: 1px solid #d9dfd0; color: #414a38;
+    }
+    .flow {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+      margin: 20px 0;
+    }
+    .step {
+      min-height: 115px; display: flex; flex-direction: column; justify-content: center;
+      text-align: center; padding: 13px 9px; border-radius: 12px;
+      background: var(--soft); border: 1px solid var(--line);
+    }
+    .step b { display: block; color: var(--earth-dark); font-size: .98rem; }
+    .step span { color: var(--muted); font: .78rem/1.45 Arial, sans-serif; margin-top: 5px; }
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+    table { border-collapse: collapse; width: 100%; min-width: 650px; background: var(--card); }
+    th, td { border: 1px solid #b9aa98; padding: 12px 14px; text-align: left; vertical-align: top; }
+    th { background: #eee5d9; color: var(--earth-dark); font-weight: 600; }
+    ul, ol { padding-left: 1.35rem; }
+    li { margin: 7px 0; }
+    .number {
+      display: inline-grid; place-items: center; width: 28px; height: 28px;
+      margin-right: 7px; border-radius: 50%; color: white; background: var(--earth);
+      font: 700 .82rem Arial, sans-serif; vertical-align: middle;
+    }
+    .prayer {
+      background: linear-gradient(135deg, #f1e8dc, #fbf7ef);
+      border: 1px solid #dfd0bd; border-radius: 16px; padding: 24px 26px;
+      font-style: italic; color: #514437;
+    }
+    .small { color: var(--muted); font: .86rem/1.6 Arial, sans-serif; }
+    footer {
+      margin-top: 46px; padding-top: 20px; border-top: 1px solid var(--line);
+      color: var(--muted); font: .82rem/1.6 Arial, sans-serif; text-align: center;
+    }
+    .actions { display: flex; justify-content: flex-end; margin: 0 0 12px; }
+    button {
+      border: 0; border-radius: 999px; padding: 10px 16px; cursor: pointer;
+      color: white; background: var(--earth); font: 600 .86rem Arial, sans-serif;
+    }
+    button:hover { background: var(--earth-dark); }
+    @media (max-width: 720px) {
+      .page { padding: 14px 12px 48px; }
+      .hero { padding: 36px 23px 32px; border-radius: 16px; }
+      .hero:after { right: 10px; font-size: 160px; }
+      .card { padding: 19px 18px; }
+      .flow { grid-template-columns: 1fr; }
+      .step { min-height: auto; }
+      nav { gap: 7px; }
+    }
+    @media print {
+      body { background: white; }
+      .page { max-width: none; padding: 0; }
+      .hero { color: #222; background: #eee; box-shadow: none; }
+      .hero:after, nav, .actions { display: none !important; }
+      .hero .eyebrow, .hero .subtitle, .verse { color: #333; }
+      .card { box-shadow: none; break-inside: avoid; }
+      section { break-inside: avoid; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="actions"><button onclick="window.print()">Cetak / Simpan PDF</button></div>
+
+    <header class="hero">
+      <p class="eyebrow">Penyegaran Pagi · Kaum Beriman (1) · Pekan 7</p>
+      <h1>Satu Biji Gandum Mati,<br>Banyak Biji Dihasilkan,<br>Satu Roti Terbentuk</h1>
+      <p class="subtitle">Kamis, 19 November 2026 · Rawatan Pagi · Yohanes 12:24–26</p>
+      <blockquote class="verse">
+        “Jikalau biji gandum tidak jatuh ke dalam tanah dan mati, ia tetap satu biji saja;
+        tetapi jika ia mati, ia akan menghasilkan banyak buah.”
+        <br><strong>— Yohanes 12:24</strong>
+      </blockquote>
+    </header>
+
+    <nav aria-label="Navigasi isi">
+      <a href="#inti">Inti Firman</a>
+      <a href="#hukum">Hukum Hayat</a>
+      <a href="#ekonomi">Ekonomi Allah</a>
+      <a href="#batin">Lapisan Batin</a>
+      <a href="#praktis">Penerapan</a>
+      <a href="#nubuatan">Nubuatan 3 Menit</a>
+      <a href="#doa">Doa</a>
+    </nav>
+
+    <section id="inti">
+      <h2>1. Inti Firman: Dari Satu Biji Menjadi Banyak Biji</h2>
+      <div class="card">
+        <p class="lead">Di dalam satu biji gandum yang jatuh ke tanah, tersembunyi suatu rahasia kehidupan:
+        kematian bukanlah akhir, melainkan jalan bagi hayat untuk dilepaskan dan dilipatgandakan.</p>
+        <p>Tuhan Yesus adalah satu biji gandum yang unik. Sebagai Allah yang berinkarnasi, Dia membawa hayat ilahi di dalam diri-Nya. Melalui kematian-Nya di atas salib, hayat ilahi itu dilepaskan; melalui kebangkitan-Nya, hayat itu dibagikan kepada kaum beriman. Kita menjadi “banyak biji” sebagai pelipatgandaan Kristus, bukan karena kemampuan alamiah kita, melainkan karena menerima hayat-Nya.</p>
+        <div class="quote">Satu biji masuk ke dalam tanah; banyak biji bangkit sebagai kesaksian bahwa hayat ilahi tidak dapat dikurung oleh kematian.</div>
+        <p>Namun, tujuan Allah tidak berhenti pada banyak biji yang berdiri sendiri. Banyak biji itu perlu dibaurkan menjadi satu roti. Inilah gambaran gereja sebagai Tubuh Kristus: banyak orang yang memiliki satu hayat, satu sumber, dan satu ekspresi korporat.</p>
+      </div>
+    </section>
+
+    <section id="hukum">
+      <h2>2. Hukum Hayat: Kematian, Pelepasan, dan Pelipatgandaan</h2>
+      <div class="card">
+        <h3>A. Hayat ilahi tersembunyi di dalam Kristus</h3>
+        <p>Seperti sebutir gandum menyimpan kehidupan di dalam cangkangnya, demikian pula hayat ilahi berada di dalam Tuhan Yesus. Cangkang harus pecah agar kehidupan yang tersembunyi dapat dinyatakan. Kematian Kristus bukan kekalahan; itu adalah jalan ilahi untuk melepaskan hayat.</p>
+
+        <h3>B. Kematian Kristus menghasilkan banyak biji</h3>
+        <p>Melalui kematian dan kebangkitan-Nya, Kristus menghasilkan kaum beriman sebagai banyak biji gandum. Kita tidak menghasilkan hayat ilahi dari diri sendiri. Kita menerima hayat yang berasal dari Kristus, satu biji yang unik itu.</p>
+
+        <h3>C. Kehilangan nyawa jiwa membuka ruang bagi hayat Kristus</h3>
+        <p>“Membenci nyawa” dalam Yohanes 12:25 berarti tidak menempatkan kehidupan jiwa alamiah sebagai pusat dan penguasa. Ini bukan ajakan membenci diri, merusak tubuh, atau mengabaikan tanggung jawab. Ini adalah kesediaan untuk tidak membiarkan kesukaan, ambisi, pendapat, dan kepentingan diri menghalangi kehendak Tuhan.</p>
+
+        <h3>D. Pengupasan hayat alamiah</h3>
+        <p>Allah dapat memakai keadaan, waktu, dan persekutuan dengan saudara-saudari untuk menyingkapkan ketergantungan kita pada kekuatan alamiah. Pengupasan bukan berarti setiap kesulitan adalah hukuman langsung dari Allah. Namun, di tangan-Nya, keadaan dapat menjadi kesempatan agar kita belajar bersandar kepada-Nya dan memberi ruang bagi Kristus untuk bertambah di dalam kita.</p>
+
+        <h3>E. Kuat kuasa kebangkitan menjadi tenaga batiniah</h3>
+        <p>Kita tidak sanggup menempuh jalan salib hanya dengan tekad manusia. Paulus diserupakan dengan kematian Kristus oleh kuat kuasa kebangkitan. Hayat kebangkitan bekerja secara tersembunyi, dinamis, dan nyata, menopang kita untuk melepaskan pegangan pada diri sendiri dan hidup oleh Kristus.</p>
+        <div class="note"><strong>Prinsip hayat:</strong> bukan sekadar memperbaiki manusia alamiah, melainkan memberi Kristus kesempatan untuk menggarapkan diri-Nya ke dalam kita, sehingga kehidupan-Nya diekspresikan melalui kita.</div>
+      </div>
+    </section>
+
+    <section id="ekonomi">
+      <h2>3. Ekonomi Allah dan Penyaluran Ilahi: Banyak Biji Menjadi Satu Roti</h2>
+      <div class="card">
+        <p>Ekonomi Allah bergerak dari Kristus sebagai satu biji gandum, kepada kaum beriman sebagai banyak biji gandum, dan akhirnya kepada satu roti sebagai Tubuh Kristus. Sasaran-Nya bukan sekadar menghasilkan banyak individu rohani, melainkan membangun satu Tubuh yang mengekspresikan Kristus secara korporat.</p>
+        <div class="flow" aria-label="Alur gambaran biji gandum">
+          <div class="step"><b>Kristus</b><span>Satu biji gandum yang unik</span></div>
+          <div class="step"><b>Kematian</b><span>Hayat ilahi dilepaskan</span></div>
+          <div class="step"><b>Kebangkitan</b><span>Hayat dibagikan</span></div>
+          <div class="step"><b>Banyak biji</b><span>Kaum beriman dihasilkan</span></div>
+          <div class="step"><b>Satu roti</b><span>Tubuh Kristus dibangun</span></div>
+        </div>
+        <h3>Penyaluran hayat menghasilkan kesatuan</h3>
+        <p>Kristus bukan hanya teladan yang kita kagumi dari luar. Dia adalah hayat yang kita terima dan nikmati dari dalam. Ketika kita berpaling kepada-Nya, hayat-Nya menyuplai kita; ketika hayat yang sama bertumbuh di dalam banyak orang, kita dibawa kepada kesatuan Tubuh.</p>
+        <p>Dalam 1 Korintus 10:17, satu roti menyatakan bahwa kita, sekalipun banyak, adalah satu Tubuh karena kita semua mengambil bagian dari satu roti. Kesatuan ini bukan keseragaman kepribadian. Setiap anggota tetap memiliki fungsi dan keunikannya, tetapi semua hidup oleh satu hayat dan berada dalam satu Tubuh.</p>
+
+        <h3>Allah menjadi bagian kita yang unik</h3>
+        <p>Uang, anak-anak, pekerjaan, kedudukan, dan gelar dapat menjadi berkat atau tanggung jawab, tetapi semuanya bukan sumber hidup yang terakhir. Allah sendiri adalah bagian kita. Dia tidak hanya menjadi bagian kita secara luaran; Dia ingin menggarapkan diri-Nya ke dalam batin kita sampai Kristus menjadi kepuasan dan ekspresi kita.</p>
+        <div class="quote">Ketika sandaran-sandaran lahiriah berubah, Allah tetap tinggal. Ketika hal-hal yang kita genggam terlepas, Dia tetap menjadi bagian kita yang tidak tergantikan.</div>
+      </div>
+    </section>
+
+    <section id="batin">
+      <h2>4. Lapisan Batin dan Kaitannya dengan Anggota Diri Kita</h2>
+      <div class="card">
+        <p>Pengupasan hayat alamiah menyentuh seluruh diri kita. Tuhan tidak sekadar mengubah perilaku di permukaan; Dia ingin memperoleh ruang di dalam hati, pikiran, perasaan, kehendak, dan roh kita. Gambaran berikut adalah alat perenungan praktis, bukan pembagian anatomi yang kaku.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Bagian batin</th><th>Kecenderungan alamiah</th><th>Ruang bagi hayat Kristus</th><th>Ekspresi dalam anggota tubuh</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Hati</strong></td><td>Melekat pada hal yang memberi rasa aman dan identitas.</td><td>Belajar mengasihi Tuhan sebagai bagian yang utama.</td><td>Mata diarahkan kepada hal yang membangun; mulut mengucapkan syukur.</td></tr>
+              <tr><td><strong>Roh manusia</strong></td><td>Mengandalkan pikiran dan tenaga sendiri.</td><td>Berpaling kepada Tuhan dalam roh untuk menerima suplai hayat.</td><td>Napas doa dan penyembahan; sikap batin yang terbuka kepada Tuhan.</td></tr>
+              <tr><td><strong>Pikiran</strong></td><td>Memaksakan rencana, penilaian, dan jalan sendiri.</td><td>Diperbarui agar mengenal kehendak Tuhan.</td><td>Lidah berbicara dengan hikmat; tangan bekerja menurut pimpinan-Nya.</td></tr>
+              <tr><td><strong>Perasaan</strong></td><td>Dikuasai kesukaan, kekecewaan, atau rasa tersinggung.</td><td>Belajar menerima suplai dan penghiburan Tuhan.</td><td>Wajah, nada suara, dan tindakan memancarkan kelembutan.</td></tr>
+              <tr><td><strong>Kehendak</strong></td><td>Bersikeras mempertahankan kehendak pribadi.</td><td>Menyerahkan pilihan kepada Tuhan dan taat kepada-Nya.</td><td>Kaki melangkah dalam ketaatan; tangan melayani tanpa mencari pujian.</td></tr>
+              <tr><td><strong>Hati nurani</strong></td><td>Membenarkan diri atau menghindari terang.</td><td>Menanggapi terang Tuhan dengan pengakuan dan pertobatan.</td><tdPerbuatan menjadi jujur; hubungan dipulihkan dengan rendah hati.</td></tr>
+              <tr><td><strong>Tubuh jasmani</strong></td><td>Dipakai untuk memuaskan diri atau mengejar ambisi.</td><td>Dipersembahkan sebagai sarana kebenaran dan pelayanan.</td><td>Mata, telinga, mulut, tangan, dan kaki menjadi anggota yang melayani Tuhan.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small">Catatan: tubuh jasmani bukan sesuatu yang jahat. Tubuh adalah bejana dan anggota yang dapat dipersembahkan kepada Allah untuk mengekspresikan hayat Kristus.</p>
+      </div>
+    </section>
+
+    <section id="praktis">
+      <h2>5. Penerapan Praktis: Membiarkan Biji Itu Bekerja di Dalam Kita</h2>
+      <div class="card">
+        <p class="lead">Jalan hayat bukan hanya dipahami; jalan itu dijalani dalam perkara-perkara kecil, hari demi hari.</p>
+        <ol>
+          <li><strong>Ketika rencana tidak berjalan:</strong> berhenti sejenak, berpaling kepada Tuhan, dan bertanya, “Tuhan, bagaimana aku dapat menerima-Mu dalam keadaan ini?” Jangan buru-buru bereaksi dari rasa kecewa.</li>
+          <li><strong>Ketika pendapat kita ditentang:</strong> jangan segera mempertahankan diri. Belajar mendengar, memeriksa hati, dan membiarkan Kristus menjadi damai sejahtera di antara kita.</li>
+          <li><strong>Ketika kehilangan sesuatu yang berharga:</strong> akui kesedihan dengan jujur, tetapi jangan menjadikan hal itu sebagai sandaran terakhir. Belajar berkata, “Tuhan, Engkau tetap menjadi bagianku.”</li>
+          <li><strong>Dalam kehidupan gereja:</strong> jangan hanya mencari orang yang cocok dengan kita. Belajar dibaurkan, saling menerima, saling menopang, dan melayani demi pembangunan Tubuh.</li>
+          <li><strong>Dalam pelayanan:</strong> jangan mencari kehormatan manusia. Yohanes 12:26 mengarahkan pelayan untuk mengikuti Tuhan; kehormatan sejati datang dari Bapa.</li>
+        </ol>
+        <h3>Latihan rohani harian</h3>
+        <ul>
+          <li><strong>Pagi:</strong> “Tuhan Yesus, aku mau menerima hayat-Mu hari ini. Jadilah bagian dan kepuasanku.”</li>
+          <li><strong>Di tengah keadaan:</strong> berhenti sejenak sebelum bereaksi; panggil nama Tuhan dan beri ruang bagi hayat kebangkitan.</li>
+          <li><strong>Saat berjumpa saudara-saudari:</strong> pilih membangun, bukan menang; mendengar, bukan menguasai; melayani, bukan mencari pengakuan.</li>
+          <li><strong>Malam:</strong> tinjau hari itu di hadapan Tuhan. Akui bagian yang masih alamiah dan bersyukur atas suplai-Nya.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="nubuatan">
+      <h2>6. Draf Nubuatan Sidang — ±3 Menit</h2>
+      <div class="card">
+        <p><strong>Judul: Banyak Biji, Satu Roti</strong></p>
+        <p>Saudara-saudari, Yohanes 12:24 memperlihatkan kepada kita satu rahasia hayat. Tuhan Yesus adalah satu biji gandum yang unik. Jika biji itu tidak jatuh ke tanah dan mati, ia tetap satu biji. Tetapi melalui kematian dan kebangkitan-Nya, hayat ilahi dilepaskan dan menghasilkan banyak biji. Kita adalah banyak biji itu—hasil pelipatgandaan Kristus.</p>
+        <p>Akan tetapi, sasaran Tuhan bukan hanya membuat kita menjadi banyak biji yang hidup sendiri-sendiri. Dalam 1 Korintus 10:17, banyak biji itu dibaurkan menjadi satu roti. Roti yang satu ini melambangkan Tubuh Kristus. Jadi, kita bukan hanya perlu menikmati Kristus secara pribadi; kita juga perlu dibangun bersama saudara-saudari dalam satu Tubuh.</p>
+        <p>Untuk mencapai hal ini, hayat alamiah kita perlu dikupas. Kadang-kadang Tuhan mengizinkan keadaan yang menyentuh rencana, kesukaan, atau sandaran kita. Bukan berarti setiap kesulitan adalah hukuman. Namun, dalam tangan Tuhan, keadaan dapat menjadi kesempatan bagi kita untuk belajar bahwa uang, pekerjaan, kedudukan, bahkan hal-hal yang kita kasihi bukanlah bagian kita yang paling utama. Allah sendiri adalah bagian kita.</p>
+        <p>Kita tidak dapat mengalami kematian Kristus dengan kekuatan diri. Kita memerlukan kuat kuasa kebangkitan. Karena itu, ketika kita menghadapi sesuatu yang tidak sesuai dengan kehendak kita, marilah kita berpaling kepada Tuhan dan menerima suplai hayat-Nya. Kita tidak perlu membela manusia alamiah; kita perlu memberi Kristus ruang untuk hidup di dalam kita.</p>
+        <p>Kiranya kita bukan hanya menjadi banyak biji, melainkan juga rela dibaurkan menjadi satu roti. Biarlah Kristus menjadi hayat kita, kesatuan kita, dan ekspresi kita. Dengan demikian, gereja dapat menjadi kesaksian korporat bahwa satu biji gandum telah jatuh ke tanah, mati, dan menghasilkan banyak buah. Amin.</p>
+      </div>
+    </section>
+
+    <section id="doa">
+      <h2>7. Doa Penutup</h2>
+      <div class="prayer">
+        Tuhan Yesus, Engkaulah satu biji gandum yang unik. Terima kasih karena melalui kematian dan kebangkitan-Mu, hayat ilahi telah dilepaskan dan dibagikan kepada kami. Ampunilah kami ketika kami masih menggenggam kehidupan jiwa, pendapat, ambisi, dan sandaran alamiah kami. Ajarlah kami menerima pekerjaan-Mu dalam setiap keadaan, bukan dengan kekuatan diri, melainkan oleh kuat kuasa kebangkitan. Garapkanlah diri-Mu semakin dalam ke dalam hati dan seluruh diri kami. Jadikan kami bukan hanya orang-orang yang menikmati-Mu secara pribadi, tetapi juga banyak biji yang dibaurkan menjadi satu roti, satu Tubuh Kristus. Jadilah bagian kami yang unik dan ekspresi-Mu melalui kehidupan kami bersama. Amin.
+      </div>
+    </section>
+
+    <section>
+      <h2>8. Ringkasan untuk Diingat</h2>
+      <div class="card">
+        <ol>
+          <li>Kristus adalah satu biji gandum yang unik.</li>
+          <li>Kematian dan kebangkitan Kristus melepaskan serta membagikan hayat ilahi.</li>
+          <li>Kaum beriman adalah banyak biji sebagai pelipatgandaan Kristus.</li>
+          <li>Banyak biji perlu dibaurkan menjadi satu roti—Tubuh Kristus.</li>
+          <li>Hayat alamiah dikupas agar Kristus memperoleh ruang di dalam kita.</li>
+          <li>Kuat kuasa kebangkitan menopang kita untuk hidup dalam kematian Kristus.</li>
+          <li>Allah sendiri adalah bagian kita yang unik dan kekal.</li>
+        </ol>
+        <div class="quote">Dari satu biji yang jatuh, lahirlah banyak biji; dari banyak biji yang dibaurkan, tampaklah satu roti. Inilah jalan hayat, dan inilah kerinduan hati Allah.</div>
+      </div>
+    </section>
+
+    <footer>
+      <div><strong>Penyegaran Pagi — Kaum Beriman (1), Pekan 7, Kamis 19 November 2026</strong></div>
+      <div>Bacaan Alkitab: Yohanes 12:24–26; 1 Korintus 10:17; Roma 8:28–29.</div>
+      <div>Bacaan rujukan: <em>The Conclusion of the New Testament</em>, hlm. 1176–1178; <em>Kehidupan Orang Kristen</em>, hlm. 241, 249–251; bab 15.</div>
+      <div class="small">Dokumen HTML mandiri. Untuk PWA yang dapat dipasang, tambahkan manifest dan service worker serta sajikan melalui HTTPS atau localhost.</div>
+    </footer>
+  </main>
+</body>
+</html>
