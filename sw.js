@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-penyegaran-v2-cache-v1';
+const CACHE_NAME = 'pwa-penyegaran-v2-cache-v2';
 const assetsToCache = [
     './',
     './index.html',
