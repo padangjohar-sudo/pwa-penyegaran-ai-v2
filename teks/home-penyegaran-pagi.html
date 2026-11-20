@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#073d2b">
+  <meta name="description" content="Penyegaran Pagi Kaum Beriman — menikmati firman Tuhan setiap hari.">
+  <title>Beranda | Penyegaran Pagi Kaum Beriman</title>
+  <style>
+    :root {
+      --green: #073d2b;
+      --green-2: #0d593c;
+      --green-3: #176b49;
+      --gold: #e8bd52;
+      --gold-soft: #f6df9b;
+      --cream: #fff7e5;
+      --cream-2: #f4e6c6;
+      --ink: #183b2b;
+      --muted: #617264;
+      --shadow: 0 12px 30px rgba(41, 48, 28, .16);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f5ecd8;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .site-header {
+      position: relative;
+      z-index: 5;
+      color: #fff;
+      background: linear-gradient(110deg, #063522, #0b4b32);
+      border-bottom: 3px solid rgba(232,189,82,.85);
+    }
+    .nav-wrap {
+      width: min(1440px, 94%);
+      min-height: 88px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 12px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; min-width: 260px; }
+    .brand-mark {
+      width: 66px; height: 58px; display: grid; place-items: center;
+      color: var(--gold); flex: 0 0 auto;
+    }
+    .brand-mark svg { width: 64px; height: 58px; }
+    .brand-name { line-height: 1.02; }
+    .brand-name strong { display: block; font-size: clamp(22px, 2.3vw, 34px); font-style: italic; color: #fffdf5; }
+    .brand-name span { display: block; margin-top: 3px; font-size: clamp(17px, 1.8vw, 25px); font-style: italic; font-weight: bold; color: var(--gold); }
+    .main-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-link {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 12px 16px; border-radius: 999px; color: #fff;
+      font: 600 15px/1.1 Arial, sans-serif; transition: .2s ease;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--green); background: linear-gradient(135deg, #fff0bf, #efc45b); }
+    .nav-link svg { width: 19px; height: 19px; }
+    .menu-toggle { display: none; border: 1px solid rgba(255,255,255,.35); color: white; background: transparent; border-radius: 12px; padding: 9px 12px; }
+    .hero {
+      position: relative; overflow: hidden; min-height: 500px;
+      background:
+        linear-gradient(90deg, rgba(255,248,229,.94) 0%, rgba(255,248,229,.82) 37%, rgba(255,248,229,.12) 72%),
+        radial-gradient(ellipse at 68% 28%, #fff5c9 0, #f6d78c 16%, #c6d2ae 42%, #75957a 68%, #315d45 100%);
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 69% 25%, rgba(255,255,225,.95) 0 4%, rgba(255,220,135,.55) 5%, transparent 17%),
+        linear-gradient(165deg, transparent 40%, rgba(10,62,41,.08) 41% 48%, transparent 49%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 115px;
+      background: linear-gradient(180deg, transparent, rgba(91,66,35,.28));
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 1; width: min(1380px, 92%); margin: auto;
+      min-height: 500px; display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 20px;
+      padding: 44px 0 28px;
+    }
+    .hero-copy { max-width: 620px; padding: 10px 0 30px; }
+    .eyebrow { color: var(--green-2); text-transform: uppercase; letter-spacing: .18em; font: 700 12px Arial, sans-serif; }
+    h1 { margin: 12px 0 0; color: var(--green); font-size: clamp(42px, 6vw, 76px); line-height: .98; font-style: italic; font-weight: 700; }
+    .hero-subtitle { margin: 10px 0 18px; font-size: clamp(23px, 3vw, 37px); line-height: 1.12; font-weight: bold; }
+    .ornament { display: flex; align-items: center; gap: 12px; width: 220px; margin: 16px auto; color: #b18b2f; }
+    .ornament::before, .ornament::after { content: ""; height: 1px; flex: 1; background: currentColor; }
+    .ornament span { font-size: 22px; }
+    .verse { max-width: 510px; margin: 0 auto 24px; font-size: clamp(17px, 2vw, 22px); line-height: 1.35; font-style: italic; text-align: center; color: #1d3929; }
+    .verse cite { display: block; margin-top: 8px; font-size: .78em; font-style: normal; font-weight: bold; }
+    .hero-actions { display: flex; justify-content: center; }
+    .primary-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 13px;
+      min-height: 58px; padding: 14px 28px; border: 3px solid var(--gold);
+      border-radius: 999px; color: white; background: linear-gradient(135deg, #075333, #087044);
+      box-shadow: 0 8px 18px rgba(7,61,43,.22); font: 700 18px Arial, sans-serif;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(7,61,43,.28); }
+    .primary-btn svg { width: 20px; height: 20px; }
+    .hero-art { position: relative; min-height: 390px; display: flex; align-items: end; justify-content: center; }
+    .sun-disc { position: absolute; width: 190px; height: 190px; border-radius: 50%; top: 6px; left: 43%; transform: translateX(-50%); background: radial-gradient(circle, #fffce6 0 9%, #ffe8a1 28%, rgba(255,207,100,.2) 70%, transparent 72%); filter: blur(1px); }
+    .book-scene {
+      position: relative; z-index: 1; width: min(100%, 590px); margin-bottom: 26px;
+      padding: 24px 20px 18px; border-radius: 48% 48% 12px 12px / 30% 30% 12px 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(93,64,31,.1));
+    }
+    .open-book {
+      position: relative; height: 150px; display: flex; align-items: end; justify-content: center;
+      filter: drop-shadow(0 16px 9px rgba(49,36,20,.28));
+    }
+    .page {
+      width: 47%; height: 130px; padding: 20px 12px 12px;
+      background: repeating-linear-gradient(180deg, #fffdf4 0 5px, #e8dfcc 6px, #fffdf4 7px);
+      border: 1px solid #c9b58c; border-bottom: 5px solid #a47735;
+    }
+    .page.left { border-radius: 8px 4px 5px 14px; transform: skewY(5deg); box-shadow: inset -8px 0 10px rgba(117,83,42,.12); }
+    .page.right { border-radius: 4px 8px 14px 5px; transform: skewY(-5deg); box-shadow: inset 8px 0 10px rgba(117,83,42,.12); }
+    .book-spine { width: 10px; height: 135px; margin: 0 -2px; z-index: 2; background: linear-gradient(90deg,#9a682b,#f4d58c,#9a682b); border-radius: 50%; }
+    .book-caption { margin-top: 10px; text-align: center; color: #fff8df; font: italic 15px Georgia, serif; text-shadow: 0 2px 5px rgba(0,0,0,.55); }
+    .date-card {
+      position: absolute; z-index: 2; top: 28px; right: 0; width: 245px;
+      padding: 20px; border: 1px solid rgba(255,255,255,.75); border-radius: 18px;
+      background: rgba(255,248,229,.92); box-shadow: var(--shadow); text-align: center;
+    }
+    .date-card .date-title { color: var(--green); font-size: 20px; font-weight: bold; }
+    .date-card .date-value { margin-top: 5px; font: 700 14px Arial, sans-serif; color: #31513d; }
+    .date-card p { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #d9c89f; font-size: 15px; font-style: italic; line-height: 1.35; }
+    .content-wrap { position: relative; z-index: 2; width: min(1380px, 92%); margin: -5px auto 0; }
+    .section-heading { margin: 0 0 15px; color: var(--green); font-size: 23px; text-align: center; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feature-card {
+      position: relative; display: grid; grid-template-columns: 82px 1fr 36px; align-items: center; gap: 14px;
+      min-height: 172px; padding: 20px 20px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.85); border-radius: var(--radius);
+      background: linear-gradient(135deg, #fff9e9, #f0dfb9); box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px rgba(41,48,28,.2); }
+    .feature-card::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: linear-gradient(90deg, var(--gold), #fff0b7, var(--green-3)); }
+    .number { position: absolute; top: 16px; left: 17px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--green); color: white; font: 700 17px Arial, sans-serif; }
+    .feature-icon { grid-column: 1; grid-row: 1; margin-top: 35px; color: var(--green-2); display: grid; place-items: center; }
+    .feature-icon svg { width: 66px; height: 66px; }
+    .feature-text { grid-column: 2; grid-row: 1; }
+    .feature-text h2 { margin: 0 0 8px; color: var(--green); font-size: clamp(19px, 2vw, 25px); line-height: 1.12; }
+    .feature-text p { margin: 0; color: #4c4a36; font: 15px/1.4 Arial, sans-serif; }
+    .arrow { grid-column: 3; grid-row: 1; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--green); color: white; }
+    .arrow svg { width: 18px; height: 18px; }
+    .quick-links {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin: 24px 0 30px;
+      padding: 14px 8px; border: 1px solid white; border-radius: 20px;
+      background: linear-gradient(135deg, #fff9eb, #f0dfbd); box-shadow: var(--shadow);
+    }
+    .quick-link { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 60px; padding: 8px 12px; color: var(--green); font: 700 14px/1.25 Arial, sans-serif; text-align: left; }
+    .quick-link + .quick-link { border-left: 1px solid #b9a276; }
+    .quick-link svg { width: 28px; height: 28px; flex: 0 0 auto; }
+    .quick-link:hover { color: #9a701c; }
+    .footer { position: relative; overflow: hidden; padding: 25px 15px 28px; color: #fff8e9; text-align: center; background: linear-gradient(110deg, #063522, #0b4b32); border-top: 5px solid var(--gold); }
+    .footer p { margin: 0; font-size: clamp(16px, 2vw, 22px); font-style: italic; }
+    .footer small { display: block; margin-top: 9px; color: #e8d8ad; font: 12px Arial, sans-serif; }
+    .notice { width: min(1380px, 92%); margin: 0 auto 22px; color: var(--muted); font: 12px/1.5 Arial, sans-serif; text-align: center; }
+    @media (max-width: 950px) {
+      .nav-wrap { min-height: 76px; }
+      .menu-toggle { display: inline-flex; }
+      .main-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 12px 4%; background: #073d2b; box-shadow: var(--shadow); }
+      .main-nav.open { display: flex; flex-direction: column; align-items: stretch; }
+      .nav-link { justify-content: center; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 0; padding-top: 35px; }
+      .hero-copy { margin: auto; }
+      .hero-art { min-height: 260px; margin-top: -8px; }
+      .date-card { top: 4px; right: 0; width: 210px; padding: 14px; }
+      .book-scene { max-width: 480px; margin-top: 60px; }
+      .feature-grid { gap: 12px; }
+      .feature-card { grid-template-columns: 60px 1fr 30px; padding: 16px 13px; }
+      .feature-icon svg { width: 52px; height: 52px; }
+      .quick-links { grid-template-columns: repeat(3, 1fr); }
+      .quick-link:nth-child(4) { border-left: 0; }
+    }
+    @media (max-width: 650px) {
+      .nav-wrap { width: 92%; }
+      .brand { min-width: 0; gap: 8px; }
+      .brand-mark, .brand-mark svg { width: 48px; height: 46px; }
+      .brand-name strong { font-size: 20px; }
+      .brand-name span { font-size: 16px; }
+      .hero { min-height: auto; }
+      .hero-inner { width: 92%; min-height: 0; padding: 38px 0 18px; }
+      h1 { font-size: 46px; }
+      .hero-subtitle { font-size: 24px; }
+      .verse { font-size: 17px; }
+      .primary-btn { min-height: 52px; padding: 12px 20px; font-size: 15px; }
+      .hero-art { min-height: 220px; }
+      .date-card { position: relative; top: auto; right: auto; width: min(100%, 270px); margin: 8px auto 0; order: -1; }
+      .hero-art { display: flex; flex-direction: column; }
+      .book-scene { width: 100%; margin: 0; padding: 10px 10px 0; }
+      .open-book { height: 112px; }
+      .page { height: 96px; }
+      .book-spine { height: 101px; }
+      .book-caption { display: none; }
+      .content-wrap { width: 92%; margin-top: 8px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature-card { min-height: 135px; grid-template-columns: 68px 1fr 34px; padding: 17px; }
+      .feature-icon { margin-top: 25px; }
+      .feature-text h2 { font-size: 21px; }
+      .feature-text p { font-size: 14px; }
+      .quick-links { grid-template-columns: 1fr 1fr; padding: 8px; }
+      .quick-link { justify-content: flex-start; min-height: 58px; padding: 8px; font-size: 13px; }
+      .quick-link + .quick-link { border-left: 0; }
+      .quick-link:nth-child(even) { border-left: 1px solid #b9a276; }
+      .quick-link:last-child { grid-column: 1 / -1; border-top: 1px solid #b9a276; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="../index.html" target="_top" aria-label="Penyegaran Pagi, Beranda">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 100 80" fill="none">
+            <path d="M13 58C29 48 37 32 40 10C21 20 11 35 13 58Z" fill="#3b9b65"/>
+            <path d="M44 60C45 37 57 16 81 7C82 31 68 51 44 60Z" fill="#e8bd52"/>
+            <path d="M24 63C39 51 54 37 72 19" stroke="#f7e7b2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M47 62C47 49 44 38 37 28" stroke="#f7e7b2" stroke-width="3" stroke-linecap="round"/>
+            <path d="M18 65H83" stroke="#f7e7b2" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name"><strong>Penyegaran Pagi</strong><span>Kaum Beriman</span></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰ Menu</button>
+      <nav class="main-nav" id="mainNav" aria-label="Navigasi utama">
+        <a class="nav-link active" href="../index.html" target="_top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Beranda</a>
+        <a class="nav-link" href="index.html#materi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4m8-4v4M3 9h18"/></svg>Kalender</a>
+        <a class="nav-link" href="index.html#riwayat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 2.6-6.4L3 8"/><path d="M3 3v5h5m4-1v5l4 2"/></svg>Riwayat</a>
+        <a class="nav-link" href="#tentang"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5.5A3.5 3.5 0 0 1 6.5 2H12v19H6.5A3.5 3.5 0 0 0 3 24z" transform="translate(0 -1)"/><path d="M21 5.5A3.5 3.5 0 0 0 17.5 2H12v19h5.5A3.5 3.5 0 0 1 21 24z" transform="translate(0 -1)"/></svg>Tentang</a>
+        <a class="nav-link" href="#panduan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.6 9a2.5 2.5 0 1 1 4.3 1.7c-1.1 1-1.9 1.4-1.9 3.3M12 17.5h.01"/></svg>Panduan</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="welcomeTitle">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">Menikmati firman Tuhan setiap hari</div>
+          <h1 id="welcomeTitle">Selamat Datang</h1>
+          <div class="hero-subtitle">di Penyegaran Pagi<br>Kaum Beriman</div>
+          <div class="ornament"><span>❧</span></div>
+          <blockquote class="verse">
+            “Sebab kasih karunia-Ku cukup bagimu, sebab kekuatan-Ku menjadi sempurna dalam kelemahan.”
+            <cite>2 Korintus 12:9</cite>
+          </blockquote>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#materi">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5c0-.8.9-1.3 1.6-.9l10 6.5a1.1 1.1 0 0 1 0 1.8l-10 6.5c-.7.5-1.6 0-1.6-.9z"/></svg>
+              Mulai Penyegaran
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Ilustrasi Alkitab terbuka dalam suasana pagi">
+          <div class="date-card">
+            <div class="date-title" id="todayLabel">Hari Ini</div>
+            <div class="date-value" id="todayDate">Memuat tanggal…</div>
+            <p>Mari menikmati firman Tuhan setiap pagi…</p>
+          </div>
+          <div class="sun-disc"></div>
+          <div class="book-scene">
+            <div class="open-book" aria-hidden="true">
+              <div class="page left"></div><div class="book-spine"></div><div class="page right"></div>
+            </div>
+            <div class="book-caption">Firman Tuhan menjadi terang bagi langkah kita</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-wrap" id="materi" aria-label="Pilihan bahan penyegaran">
+      <h2 class="section-heading">Pilih bahan penyegaran hari ini</h2>
+      <div class="feature-grid">
+        <a class="feature-card" href="../index.html" target="_top">
+          <span class="number">01</span>
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M7 18c11-5 21-2 29 5v37C27 53 17 51 7 56z"/><path d="M65 18c-11-5-21-2-29 5v37c9-7 19-9 29-4z"/><path d="M36 23v37M13 26c7-2 13 0 18 4M13 34c7-2 13 0 18 4M59 26c-7-2-13 0-18 4M59 34c-7-2-13 0-18 4"/></svg>
+          </span>
+          <span class="feature-text"><h2>Buku Asli</h2><p>Membaca bahan penyegaran pagi dari sumber aslinya.</p></span>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
+        </a>
+        <a class="feature-card" href="../index.html" target="_top">
+          <span class="number">02</span>
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"><path d="M7 18c11-5 21-2 29 5v37C27 53 17 51 7 56z"/><path d="M65 18c-11-5-21-2-29 5v37c9-7 19-9 29-4z"/><path d="M36 23v37M13 26c7-2 13 0 18 4M59 26c-7-2-13 0-18 4"/></svg>
+          </span>
+          <span class="feature-text"><h2>Alkitab Terjemahan Pemulihan</h2><p>Merenungkan firman Allah dan catatan kaki yang memperkaya.</p></span>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
+        </a>
+        <a class="feature-card" href="../index.html" target="_top">
+          <span class="number">03</span>
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M36 61V29M36 43C19 43 14 32 14 22c13 0 22 7 22 21ZM36 36c0-14 9-23 23-23 0 14-8 23-23 23ZM15 62h42M23 62c3-5 8-8 13-8s10 3 13 8"/></svg>
+          </span>
+          <span class="feature-text"><h2>Penggalian AI</h2><p>Hukum Hayat, Ekonomi Allah, dan pengalaman hayat.</p></span>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
+        </a>
+      </div>
+
+      <nav class="quick-links" aria-label="Menu tambahan">
+        <a class="quick-link" href="index.html#kalender"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4m8-4v4M3 9h18M8 13h3m-3 4h3m3-4h3"/></svg><span>Kalender<br>Penyegaran</span></a>
+        <a class="quick-link" href="#riwayat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 2.6-6.4L3 8"/><path d="M3 3v5h5m4-1v5l4 2"/></svg><span>Riwayat<br>Bacaan</span></a>
+        <a class="quick-link" href="#ayat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9z"/></svg><span>Ayat Pilihan</span></a>
+        <a class="quick-link" href="#tentang"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h11l3 3v15H5z"/><path d="M16 3v4h4M8 11h8M8 15h8"/></svg><span>Tentang<br>Aplikasi</span></a>
+        <a class="quick-link" href="#tujuan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.5-6 6-6s6 2.5 6 6M15 15c3.5-.5 6 1.5 6 5"/></svg><span>Tujuan Penyegaran<br>Pagi</span></a>
+      </nav>
+    </section>
+
+    <section class="notice" id="tentang">
+      Aplikasi ini disediakan sebagai sarana untuk menikmati firman Tuhan, membaca bahan penyegaran, dan menggali kekayaan hayat setiap hari.
+    </section>
+  </main>
+
+  <footer class="footer" id="panduan">
+    <p>“Firman Tuhan, sumber kehidupan dan sukacita kita setiap hari.”</p>
+    <small>Penyegaran Pagi · Kaum Beriman</small>
+  </footer>
+
+  <script>
+    // Tanggal mengikuti zona waktu perangkat pengguna.
+    const now = new Date();
+    const dateOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+    const dayOptions = { weekday: 'long' };
+    document.getElementById('todayLabel').textContent = 'Hari Ini, ' +
+      new Intl.DateTimeFormat('id-ID', dayOptions).format(now);
+    document.getElementById('todayDate').textContent =
+      new Intl.DateTimeFormat('id-ID', dateOptions).format(now);
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '✕ Tutup' : '☰ Menu';
+    });
+    mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰ Menu';
+    }));
+  </script>
+</body>
+</html>
