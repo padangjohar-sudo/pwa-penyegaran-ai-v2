@@ -45,7 +45,7 @@ button{border:0;border-radius:20px;padding:10px 15px;background:#fff;color:var(-
  <div class="kicker">Kaum Beriman (1) · Pekan ke-08</div>
  <h1>Mengenal dan Mengalami Kristus yang Almuhit dalam Injil Matius</h1>
  <p>Memandang satu Kristus dalam kekayaan persona dan ministri-Nya: Raja Surgawi, Putra Allah yang hidup, Terang hayat, Tabib, Mempelai, Gembala, Roti hayat, dan Tuhan yang bangkit dengan segala otoritas.</p>
- <div class="actions"><button onclick="window.print()">Cetak / Simpan PDF</button><button onclick="openAll()">Buka semua bagian</button><button onclick="closeAll()">Tutup semua bagian</button></div>
+ <div class="actions"><a href="../index.html" class="btn-home" style="margin-right:8px;text-decoration:none;">Home</a><button type="button" onclick="copyPageContent()">COPY</button><button onclick="openAll()">Buka semua bagian</button><button onclick="closeAll()">Tutup semua bagian</button></div>
 </header>
 <main>
 <div class="verse"><strong>Ayat-ayat kunci:</strong> Matius 2:1-2; 3:11; 4:12-16; 8:20; 9:11-17, 38; 11:28-30; 15:26-27; 16:16; 21:5; 28:18-19.</div>
@@ -161,5 +161,27 @@ button{border:0;border-radius:20px;padding:10px 15px;background:#fff;color:var(-
 <script>
 function openAll(){document.querySelectorAll('details').forEach(x=>x.open=true)}
 function closeAll(){document.querySelectorAll('details').forEach(x=>x.open=false)}
+</script>
+<script>
+function copyPageContent() {
+  const target = document.querySelector("main") || document.body;
+  const text = (target.innerText || "").trim();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Teks berhasil disalin (COPY).");
+    }).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand("copy");
+  document.body.removeChild(ta);
+  alert("Teks berhasil disalin (COPY).");
+}
 </script>
 </body></html>

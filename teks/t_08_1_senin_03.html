@@ -43,7 +43,7 @@ footer{text-align:center;padding:17px;background:#f3f7f4;color:var(--muted);font
  <div class="kicker">Penyegaran Pagi · Kaum Beriman (1) · Pekan 8</div>
  <h1>Raja yang Lembut, Kristus yang Diurapi, Putra Allah yang Hidup</h1>
  <p>Senin, 23 November 2026 · Matius 16:16; 21:5-8</p>
- <div class="actions"><button onclick="window.print()">Cetak / Simpan PDF</button><button onclick="openAll()">Buka semua bagian</button><button onclick="closeAll()">Tutup semua bagian</button></div>
+ <div class="actions"><a href="../index.html" class="btn-home" style="margin-right:8px;text-decoration:none;">Home</a><button type="button" onclick="copyPageContent()">COPY</button><button onclick="openAll()">Buka semua bagian</button><button onclick="closeAll()">Tutup semua bagian</button></div>
 </header>
 <main>
 <div class="verse"><strong>Firman kunci — Matius 16:16</strong><br>“Jawab Simon Petrus, ‘Engkaulah Mesias, Anak Allah yang hidup!’”<br><br><strong>Matius 21:5</strong><br>“Lihat, Rajamu datang kepadamu, Ia lemah lembut dan mengendarai seekor keledai betina, dan seekor keledai beban yang muda.”</div>
@@ -142,6 +142,28 @@ footer{text-align:center;padding:17px;background:#f3f7f4;color:var(--muted);font
 <script>
 function openAll(){document.querySelectorAll('details').forEach(e=>e.open=true)}
 function closeAll(){document.querySelectorAll('details').forEach(e=>e.open=false)}
+</script>
+<script>
+function copyPageContent() {
+  const target = document.querySelector("main") || document.body;
+  const text = (target.innerText || "").trim();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Teks berhasil disalin (COPY).");
+    }).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand("copy");
+  document.body.removeChild(ta);
+  alert("Teks berhasil disalin (COPY).");
+}
 </script>
 </body>
 </html>

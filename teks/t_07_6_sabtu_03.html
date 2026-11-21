@@ -63,7 +63,7 @@ footer{text-align:center;border-top:1px solid var(--line);padding-top:20px;margi
 </head>
 <body>
 <main class="page">
-<div class="actions"><button onclick="window.print()">Cetak / Simpan PDF</button></div>
+<div class="actions"><a href="../index.html" class="btn-home" style="margin-right:8px;text-decoration:none;">Home</a><button type="button" onclick="copyPageContent()">COPY</button></div>
 
 <header class="hero">
 <p class="kicker">Penyegaran Pagi · Kaum Beriman (1) · Pekan 7</p>
@@ -237,5 +237,27 @@ Rujukan: <em>Pelajaran-Hayat Kolose</em>, hlm. 31, berita 3; CWWL, 1985, vol. 1,
 <span class="small">Dokumen HTML mandiri dan responsif. Untuk PWA yang dapat dipasang, sertakan manifest dan service worker serta sajikan melalui HTTPS atau localhost.</span>
 </footer>
 </main>
+<script>
+function copyPageContent() {
+  const target = document.querySelector("main") || document.body;
+  const text = (target.innerText || "").trim();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Teks berhasil disalin (COPY).");
+    }).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand("copy");
+  document.body.removeChild(ta);
+  alert("Teks berhasil disalin (COPY).");
+}
+</script>
 </body>
 </html>

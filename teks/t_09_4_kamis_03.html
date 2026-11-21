@@ -56,7 +56,7 @@
   <h1>Gereja Filadelfia: Memelihara Firman, Nama Tuhan, dan Kasih Persaudaraan</h1>
   <p>Kamis, 3 Desember 2026 · Penggalian Hukum Hayat, Ekonomi Allah, Penyaluran Ilahi, dan Penerapan Praktis</p>
   <div class="toolbar">
-    <button class="secondary" onclick="window.print()">Cetak / Simpan PDF</button>
+    <button type="button" onclick="copyPageContent()">COPY</button>
     <button class="secondary" id="installBtn" hidden>Pasang Aplikasi</button>
   </div>
 </header>
@@ -223,6 +223,28 @@
   let installPrompt;
   window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;const b=document.getElementById('installBtn');b.hidden=false;b.addEventListener('click',async()=>{installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;b.hidden=true;},{once:true});});
   if('serviceWorker' in navigator && location.protocol.startsWith('http')) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+<script>
+function copyPageContent() {
+  const target = document.querySelector("main") || document.body;
+  const text = (target.innerText || "").trim();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Teks berhasil disalin (COPY).");
+    }).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand("copy");
+  document.body.removeChild(ta);
+  alert("Teks berhasil disalin (COPY).");
+}
 </script>
 </body>
 </html>
