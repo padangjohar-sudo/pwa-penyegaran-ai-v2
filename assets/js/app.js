@@ -54,7 +54,7 @@ function switchVersion(version) {
 document.addEventListener('DOMContentLoaded', () => {
     const dateSelector = document.getElementById('date-selector');
     
-    const todayStr = new Date().toISOString().split('T')[0];
+    const todayStr = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Jakarta' });
     const initialDate = (todayStr >= "2026-10-05" && todayStr <= "2026-12-26") ? todayStr : "2026-10-05";
     
     dateSelector.value = initialDate;

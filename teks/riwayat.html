@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riwayat Bacaan | Penyegaran Pagi</title>
+  <style>
+    :root {
+      --bg: #f6f5ee;
+      --card: #ffffff;
+      --primary: #1f4d36;
+      --accent: #e9c46a;
+      --text: #1e2923;
+      --muted: #5c6b62;
+      --border: #dce3dc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    header h1 { font-size: 1.2rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.12);
+    }
+    nav a.active, nav a:hover {
+      background: var(--accent);
+      color: #1b2a22;
+      font-weight: 600;
+    }
+    main { max-width: 900px; margin: 1.5rem auto; padding: 0 1rem 3rem; }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+    .item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fcfcf9;
+    }
+    .btn {
+      text-decoration: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+    .btn.secondary {
+      background: #eef2ee;
+      color: var(--text);
+    }
+    .muted { color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Riwayat Bacaan</h1>
+    <nav>
+      <a href="../index.html">Beranda</a>
+      <a href="kalender.html">Kalender</a>
+      <a href="riwayat.html" class="active">Riwayat</a>
+      <a href="tentang.html">Tentang</a>
+      <a href="panduan.html">Panduan</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem;">
+        <div>
+          <h2>Bacaan Terakhir &amp; Pintasan Cepat</h2>
+          <p class="muted">Menampilkan riwayat bacaan yang tersimpan di browser serta pintasan sesi aktif.</p>
+        </div>
+        <button class="btn secondary" id="hapusRiwayatBtn" type="button">Hapus Riwayat Lokal</button>
+      </div>
+      <div class="list" id="riwayatList"></div>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = "penyegaran_pagi_riwayat_v1";
+    const riwayatList = document.getElementById("riwayatList");
+    const hapusBtn = document.getElementById("hapusRiwayatBtn");
+
+    const defaultItems = [
+      { judul: "Pekan 07 - Jumat (Buku Asli _01)", file: "t_07_5_jumat_01.html", waktu: "Pintasan Hari Ini" },
+      { judul: "Pekan 07 - Jumat (Penggalian AI _03)", file: "t_07_5_jumat_03.html", waktu: "Pintasan Hari Ini" },
+      { judul: "Pekan 07 - Garis Besar (_01)", file: "t_07_0_garis_besar_01.html", waktu: "Ringkasan Pekan" }
+    ];
+
+    function muatRiwayat() {
+      let tersimpan = [];
+      try {
+        tersimpan = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      } catch (_) {
+        tersimpan = [];
+      }
+
+      const items = tersimpan.length > 0 ? tersimpan : defaultItems;
+      riwayatList.innerHTML = "";
+
+      items.forEach((item) => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          <div>
+            <strong>${item.judul}</strong>
+            <div class="muted">${item.waktu || ""} · <code>${item.file}</code></div>
+          </div>
+          <a class="btn" href="${item.file}">Buka Bacaan</a>
+        `;
+        riwayatList.appendChild(div);
+      });
+    }
+
+    hapusBtn.addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      muatRiwayat();
+    });
+
+    muatRiwayat();
+  </script>
+</body>
+</html>
